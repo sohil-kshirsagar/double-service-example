@@ -1,0 +1,9 @@
+node_modules
+.claude
+.npmrc
+
+# Tusk Drift
+.tusk/traces
+.tusk/results
+.tusk/logs
+.tusk/setup

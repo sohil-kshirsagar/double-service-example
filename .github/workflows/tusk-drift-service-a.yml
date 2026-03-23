@@ -1,0 +1,34 @@
+# Tusk Drift Trace Tests for Service A
+
+name: Tusk Drift - Service A
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  tusk-drift:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: service-a
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Tusk Drift trace tests
+        uses: Use-Tusk/drift-action@v1
+        with:
+          app-dir: service-a
+          cache-key: ${{ runner.os }}-tusk-drift-service-a-${{ hashFiles('service-a/.tusk/config.yaml') }}
+          api-key: ${{ secrets.TUSK_API_KEY }}

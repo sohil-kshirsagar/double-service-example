@@ -1,0 +1,9 @@
+{
+  "allowedHosts": [
+    "randomuser.me",
+    "ip-api.com",
+    "api.open-meteo.com",
+    "bored-api.appbrewery.com",
+    "jsonplaceholder.typicode.com"
+  ]
+}

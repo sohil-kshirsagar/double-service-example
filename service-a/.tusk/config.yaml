@@ -1,0 +1,30 @@
+service:
+  name: service-a
+  port: 3000
+  start:
+    command: echo "service-a startup log" && npm run start
+  readiness_check:
+    command: curl -fsS http://localhost:3000/health
+    timeout: 10s
+    interval: 1s
+  id: PLACEHOLDER_SERVICE_A_ID
+
+traces:
+  dir: .tusk/traces
+
+test_execution:
+  timeout: 30s
+
+tusk_api:
+  url: "https://burro-sweeping-racer.ngrok-free.app"
+  auth0_domain: "tusk-dev.us.auth0.com"
+  auth0_client_id: "L9gLDU0uTEEdSb0CWVA9TURyNgiFYuki"
+
+recording:
+  sampling_rate: 0.1
+  export_spans: true
+  enable_env_var_recording: false
+
+replay:
+  sandbox:
+    config_path: .tusk/replay.fence.json
