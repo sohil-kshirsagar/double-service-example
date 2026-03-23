@@ -7,7 +7,7 @@ service:
     command: curl -fsS http://localhost:3000/health
     timeout: 10s
     interval: 1s
-  id: PLACEHOLDER_SERVICE_A_ID
+  id: 2398d67a-45aa-4e52-a3f6-2db4e695732e
 
 traces:
   dir: .tusk/traces
