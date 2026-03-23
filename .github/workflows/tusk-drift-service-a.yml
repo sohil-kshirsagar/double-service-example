@@ -29,6 +29,6 @@ jobs:
       - name: Run Tusk Drift trace tests
         uses: Use-Tusk/drift-action@v1
         with:
-          app-dir: service-a
+          working-directory: service-a
           cache-key: ${{ runner.os }}-tusk-drift-service-a-${{ hashFiles('service-a/.tusk/config.yaml') }}
           api-key: ${{ secrets.TUSK_API_KEY }}
