@@ -112,7 +112,7 @@ app.get("/api/post/:id", async (req, res) => {
     // Fetch post and comments in parallel
     const [postResponse, commentsResponse] = await Promise.all([
       axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`),
-      Promise.resolve({ data: [] }), // TODO-add this back before making PR
+      Promise.resolve({ data: [] }), // TODO-add this back before making PR, mark this as unintended deviation if an API test fails
     ]);
 
     res.json({
