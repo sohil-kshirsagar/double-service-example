@@ -106,7 +106,7 @@ app.get("/api/post/:id", async (req, res) => {
 
     const [postResponse, commentsResponse] = await Promise.all([
       axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`),
-      axios.get(`https://jsonplaceholder.typicode.com/posts/${id}/comments`),
+      Promise.resolve({ data: [] }), // TODO-add this back before making PR, mark this as unintended deviation if Tusk Drift API test fails
     ]);
 
     res.json({
